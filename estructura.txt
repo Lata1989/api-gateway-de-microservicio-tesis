@@ -1,0 +1,21 @@
+api-gateway/
+│
+├── controllers/
+│   └── authController.js     # Controlador de autenticación
+│
+├── middlewares/
+│   └── validateToken.js      # Middleware para validar JWT
+│
+├── routes/
+│   └── authRoutes.js         # Rutas de autenticación
+│
+├── utils/
+│   └── generateToken.js      # Utilidad para generar JWT
+│
+├── services/
+│
+├── utils/
+│
+├── index.js                  # Servidor principal del microservicio
+│
+└── package.json              # Dependencias del Auth Service
