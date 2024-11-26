@@ -22,6 +22,9 @@ app.get('/', (req, res) => {
 // Rutas de autenticación
 app.use('/auth', authRoutes);  // Redirige a las rutas del microservicio de autenticación
 
+// Rutas de clientes (CRUD)
+app.use('/clientes', clienteRoutes);
+
 // Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`API Gateway corriendo en el puerto ${PORT}`);

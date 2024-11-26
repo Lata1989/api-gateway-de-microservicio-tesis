@@ -1,21 +1,19 @@
 api-gateway/
 │
 ├── controllers/
-│   └── authController.js     # Controlador de autenticación
+│   ├── authController.js       # Controlador de autenticación
+│   └── clienteController.js    # Controlador para CRUD de clientes
 │
 ├── middlewares/
-│   └── validateToken.js      # Middleware para validar JWT
+│   └── validateToken.js        # Middleware para validar JWT
 │
 ├── routes/
-│   └── authRoutes.js         # Rutas de autenticación
+│   ├── authRoutes.js           # Rutas de autenticación
+│   └── clienteRoutes.js        # Rutas para CRUD de clientes
 │
 ├── utils/
-│   └── generateToken.js      # Utilidad para generar JWT
+│   └── generateToken.js        # Utilidad para generar JWT
 │
-├── services/
+├── index.js                    # Servidor principal del API Gateway
 │
-├── utils/
-│
-├── index.js                  # Servidor principal del microservicio
-│
-└── package.json              # Dependencias del Auth Service
+└── package.json                # Dependencias del API Gateway
