@@ -5,14 +5,12 @@ api-gateway/
 │   └── clienteController.js    # Controlador para CRUD de clientes
 │
 ├── middlewares/
+│   ├── attachToken.js          # Middleware para adjuntar el token
 │   └── validateToken.js        # Middleware para validar JWT
 │
 ├── routes/
 │   ├── authRoutes.js           # Rutas de autenticación
 │   └── clienteRoutes.js        # Rutas para CRUD de clientes
-│
-├── utils/
-│   └── generateToken.js        # Utilidad para generar JWT
 │
 ├── index.js                    # Servidor principal del API Gateway
 │

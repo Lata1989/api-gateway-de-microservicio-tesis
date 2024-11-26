@@ -47,6 +47,25 @@ export const updateClienteByDNI = async (req, res) => {
     }
 };
 
+// Buscar cliente por DNI
+export const getClienteByDNI = async (req, res) => {
+    try {
+        const { dni } = req.params;
+
+        // Hacer una petición GET al microservicio de clientes
+        const response = await axios.get(`${CLIENTES_URL}/clientes/search/dni/${dni}`, {
+            headers: { Authorization: req.headers.authorization },
+        });
+
+        // Si todo sale bien, devolver los datos recibidos del microservicio
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error al obtener cliente por DNI:', error);
+        res.status(500).json({ message: 'Error al conectar con el microservicio de clientes' });
+    }
+};
+
+
 // Eliminar cliente por DNI
 export const deleteClienteByDNI = async (req, res) => {
     try {
@@ -65,7 +84,7 @@ export const deleteClienteByDNI = async (req, res) => {
 export const reactivateClienteByDNI = async (req, res) => {
     try {
         const { dni } = req.params;
-        const response = await axios.put(`${CLIENTES_URL}/clientes/dni/${dni}/reactivate`, {}, {
+        const response = await axios.put(`${CLIENTES_URL}/clientes/reactivate/dni/${dni}`, {}, {
             headers: { Authorization: req.headers.authorization },
         });
         res.status(response.status).json(response.data);

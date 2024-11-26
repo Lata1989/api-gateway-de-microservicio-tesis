@@ -1,7 +1,9 @@
+// index.js
 import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors'; // Importamos cors
-import authRoutes from './routes/authRoutes.js'; // Importa las rutas de autenticación
+import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';  // Rutas de autenticación
+import clienteRoutes from './routes/clienteRoutes.js';  // Rutas de CRUD de clientes
 
 dotenv.config();
 
@@ -9,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware para permitir CORS
-app.use(cors()); // Esto permite todas las solicitudes desde cualquier origen
+app.use(cors());
 
 // Middleware para parsear JSON
 app.use(express.json());
@@ -20,12 +22,11 @@ app.get('/', (req, res) => {
 });
 
 // Rutas de autenticación
-app.use('/auth', authRoutes);  // Redirige a las rutas del microservicio de autenticación
+app.use('/auth', authRoutes);
 
 // Rutas de clientes (CRUD)
 app.use('/clientes', clienteRoutes);
 
-// Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`API Gateway corriendo en el puerto ${PORT}`);
 });
